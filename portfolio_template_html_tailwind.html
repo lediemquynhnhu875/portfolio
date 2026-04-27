@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio - Your Name</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+  <!-- Navbar -->
+  <header class="flex justify-between items-center p-6 max-w-6xl mx-auto">
+    <h1 class="text-lg font-semibold text-blue-700">YourName</h1>
+    <nav class="space-x-6 text-sm">
+      <a href="#about" class="hover:text-blue-600">About</a>
+      <a href="#projects" class="hover:text-blue-600">Projects</a>
+      <a href="#skills" class="hover:text-blue-600">Skills</a>
+      <a href="#timeline" class="hover:text-blue-600">Timeline</a>
+      <a href="#contact" class="hover:text-blue-600">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="py-20 px-6 text-center" data-aos="fade-up">
+    <img src="https://via.placeholder.com/120" class="w-28 h-28 mx-auto rounded-full mb-6 border-4 border-blue-100" />
+    <h2 class="text-4xl font-semibold mb-3">Hi, I'm Your Name</h2>
+    <p class="text-blue-600 mb-4">Fresher Data Science / AI Developer</p>
+    <p class="text-gray-500 max-w-xl mx-auto mb-6">
+      I build practical AI and data-driven solutions, focusing on real-world impact and clean system design.
+    </p>
+    <div class="space-x-4">
+      <a href="#projects" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">View Projects</a>
+      <a href="cv.pdf" download class="border border-blue-600 text-blue-600 px-6 py-2 rounded-lg hover:bg-blue-50 transition">Download CV</a>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="py-16 px-6 bg-blue-50">
+    <h3 class="text-2xl font-semibold text-center mb-10" data-aos="fade-up">Skills</h3>
+
+    <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
+
+      <!-- Programming -->
+      <div class="bg-white p-6 rounded-xl border" data-aos="fade-up">
+        <h4 class="font-semibold text-blue-700 mb-3">Programming</h4>
+        <p class="text-gray-600 text-sm">Python, Java, C++</p>
+      </div>
+
+      <!-- Data Science -->
+      <div class="bg-white p-6 rounded-xl border" data-aos="fade-up" data-aos-delay="100">
+        <h4 class="font-semibold text-blue-700 mb-3">Data Science & Machine Learning</h4>
+        <p class="text-gray-600 text-sm">Pandas, NumPy, Scikit-learn, Regression Models</p>
+      </div>
+
+      <!-- Web Development -->
+      <div class="bg-white p-6 rounded-xl border" data-aos="fade-up" data-aos-delay="200">
+        <h4 class="font-semibold text-blue-700 mb-3">Web Development</h4>
+        <p class="text-gray-600 text-sm">HTML, CSS, Tailwind CSS, JavaScript</p>
+      </div>
+
+      <!-- Tools -->
+      <div class="bg-white p-6 rounded-xl border" data-aos="fade-up" data-aos-delay="300">
+        <h4 class="font-semibold text-blue-700 mb-3">Tools & Technologies</h4>
+        <p class="text-gray-600 text-sm">Git, GitHub, VS Code</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Projects --> (auto GitHub) -->
+  <section id="projects" class="py-16 px-6">
+    <h3 class="text-2xl font-semibold text-center mb-10" data-aos="fade-up">Projects</h3>
+    <div id="repo-list" class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto"></div>
+  </section>
+
+  <!-- Timeline -->
+  <section id="timeline" class="py-16 px-6 max-w-4xl mx-auto">
+    <h3 class="text-2xl font-semibold text-center mb-10" data-aos="fade-up">Timeline</h3>
+    <div class="border-l-2 border-blue-200 pl-6 space-y-10">
+
+      <div data-aos="fade-right">
+        <h4 class="font-semibold text-blue-700">2023 - Present</h4>
+        <p class="text-gray-600">University Student - IT / Data Science</p>
+      </div>
+
+      <div data-aos="fade-right" data-aos-delay="100">
+        <h4 class="font-semibold text-blue-700">2024</h4>
+        <p class="text-gray-600">Developed SMART SOS Project</p>
+      </div>
+
+      <div data-aos="fade-right" data-aos-delay="200">
+        <h4 class="font-semibold text-blue-700">2025</h4>
+        <p class="text-gray-600">Worked on Machine Learning Projects</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="text-center py-16 bg-blue-50" data-aos="fade-up">
+    <h3 class="text-2xl font-semibold mb-4">Contact</h3>
+    <p class="text-gray-600 mb-4">Email: your@email.com</p>
+    <div class="space-x-6">
+      <a href="#" class="text-blue-600 hover:underline">GitHub</a>
+      <a href="#" class="text-blue-600 hover:underline">LinkedIn</a>
+    </div>
+  </section>
+
+  <footer class="text-center py-6 text-gray-400 text-sm">
+    © 2026 Your Name
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+
+    // GitHub API
+    const username = "your-github-username";
+    fetch(`https://api.github.com/users/${username}/repos`)
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById("repo-list");
+        data.slice(0,6).forEach(repo => {
+          const div = document.createElement("div");
+          div.className = "bg-white p-6 rounded-xl border hover:shadow-md transition";
+          div.innerHTML = `
+            <h4 class="font-semibold mb-2">${repo.name}</h4>
+            <p class="text-gray-500 text-sm mb-4">${repo.description || "No description"}</p>
+            <a href="${repo.html_url}" target="_blank" class="text-blue-600 text-sm hover:underline">View Repo</a>
+          `;
+          container.appendChild(div);
+        });
+      });
+  </script>
+
+</body>
+</html>
